@@ -6,6 +6,7 @@ $base-font-size: 16px;
 //$red-color: #F22613;
 //$red-color: #EF4836;
 $red-color: #D91E18;
+$green-color: #16A085;
 
 $serif: 'Sorts Mill Goudy', serif;
 //$sans: 'Lato', sans-serif;
@@ -26,6 +27,7 @@ body {
   background-color: lighten(#000, 22%);
   font-family: $sans;
   font-size: $base-font-size;
+  overflow-x: hidden;
 }
 
 .logo {
@@ -37,25 +39,43 @@ body {
 }
 
 .section {
-  position: relative;
+  position: absolute;
+  width: 97%;
+  top: 0px;
   height: 100%;
-  color: lighten($red-color, 45%);
+  .char2 {
+    margin-left: -2px;
+  }
+  &.one {
+    color: lighten($red-color, 45%);
+    .heading {
+      background-color: $red-color;
+    }
+    .content {
+      background-color: darken($red-color, 4%);
+    }
+  }
+  &.two {
+    color: lighten($green-color, 45%);
+    .heading {
+      background-color: $green-color;
+    }
+    .content {
+      background-color: darken($green-color, 4%);
+    }
+  }
 }
 .heading, .content {
-  width: 99%;
+  width: 100%;
   top:0;
-  background-color: $red-color;
   padding-left: 10px;
   padding-right: 20px;
 }
 .heading {
-  position: fixed;
+  position: absolute;
   height: 70px;
   z-index: 2;
   @include box-shadow(0px 1px 9px rgb(20,20,20));
-  .char2 {
-    margin-left: -2px;
-  }
 }
 .heading-logo {
   position: absolute;
@@ -63,9 +83,7 @@ body {
   right:20px;
   width: 48px;
 }
-
 .content {
   position: absolute;
   padding-top: 80px;
-  background-color: darken($red-color, 4%);
 }

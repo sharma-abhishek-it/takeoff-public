@@ -36,6 +36,12 @@ function animateRandomCircle(circle) {
 
 $(document).ready(function() {
     $('.heading h1').lettering();
+    var left = $('.section.one')[0];
+    var right = $('.section.two')[0];
+    $('.section.two').css({left: $('.section.one').width()});
+    Hammer(left).on("swipeleft", function() {
+        TweenMax.to(right, 100, {left: "0px"});
+    })
     /*for(var i=1; i<totalCirclesOnScreenAtAnyMoment; i++) {
         var circle = document.createElement('div');
         circle.id = "circle-" + i;
