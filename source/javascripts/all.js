@@ -35,10 +35,11 @@ function animateRandomCircle(circle) {
 }
 
 $(document).ready(function() {
-    for(var i=1; i<totalCirclesOnScreenAtAnyMoment; i++) {
+    $('.heading h1').lettering();
+    /*for(var i=1; i<totalCirclesOnScreenAtAnyMoment; i++) {
         var circle = document.createElement('div');
         circle.id = "circle-" + i;
         $('body').append(circle);
         animateRandomCircle(circle);
-    }
+    }*/
 })

@@ -1,11 +1,22 @@
 @import "normalize";
+@import "compass/css3/box-shadow";
+@import "compass/css3/box-sizing";
 
 $base-font-size: 16px;
+//$red-color: #F22613;
+//$red-color: #EF4836;
+$red-color: #D91E18;
+
+$serif: 'Sorts Mill Goudy', serif;
+//$sans: 'Lato', sans-serif;
+$sans: 'Dosis', sans-serif;
 
 .heading {
-  font-family: 'Sorts Mill Goudy', serif;
+  font-family: $serif;
 }
-
+* {
+  @include box-sizing(border-box);
+}
 html,body {
   width: 100%;
   height: 100%;
@@ -13,7 +24,7 @@ html,body {
 
 body {
   background-color: lighten(#000, 22%);
-  font-family: 'Lato', sans-serif;
+  font-family: $sans;
   font-size: $base-font-size;
 }
 
@@ -23,4 +34,38 @@ body {
   top: 0;left: 0; bottom: 0; right: 0;
   margin: auto auto;
   z-index: 2;
+}
+
+.section {
+  position: relative;
+  height: 100%;
+  color: lighten($red-color, 45%);
+}
+.heading, .content {
+  width: 99%;
+  top:0;
+  background-color: $red-color;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+.heading {
+  position: fixed;
+  height: 70px;
+  z-index: 2;
+  @include box-shadow(0px 1px 9px rgb(20,20,20));
+  .char2 {
+    margin-left: -2px;
+  }
+}
+.heading-logo {
+  position: absolute;
+  top:0;bottom:0;margin-top:auto;margin-bottom:auto;
+  right:20px;
+  width: 48px;
+}
+
+.content {
+  position: absolute;
+  padding-top: 80px;
+  background-color: darken($red-color, 4%);
 }
