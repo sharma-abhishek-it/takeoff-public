@@ -1,0 +1,26 @@
+@import "normalize";
+
+$base-font-size: 16px;
+
+.heading {
+  font-family: 'Sorts Mill Goudy', serif;
+}
+
+html,body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: lighten(#000, 22%);
+  font-family: 'Lato', sans-serif;
+  font-size: $base-font-size;
+}
+
+.logo {
+  width: 70%;
+  position: absolute;
+  top: 0;left: 0; bottom: 0; right: 0;
+  margin: auto auto;
+  z-index: 2;
+}
