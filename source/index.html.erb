@@ -1,28 +1,70 @@
 <%# <%= image_tag 'logo-dark.png', :class => 'logo' %>
+<!-- <div class="static-container">
+    <div class="section one">
+        <div class="heading">
+            <h1>We ideate</h1>
+            <%= image_tag 'idea2.png', :class => 'heading-logo' %>
+        </div>
+        <div class="content">
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+        </div>
+    </div>
+    <div class="section two">
+        <div class="heading">
+            <h1>We design</h1>
+            <%= image_tag 'design.png', :class => 'heading-logo' %>
+        </div>
+        <div class="content">
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+        </div>
+    </div>
+</div> -->
+<div class="slide-container">
+    <div class="next-color-line"></div>
 
-<div class="section one">
-    <div class="heading">
-        <h1>We ideate</h1>
-        <%= image_tag 'idea2.png', :class => 'heading-logo' %>
-    </div>
-    <div class="content">
-        <p><%= lorem.paragraph %></p>
-        <p><%= lorem.paragraph %></p>
-        <p><%= lorem.paragraph %></p>
-        <p><%= lorem.paragraph %></p>
-        <p><%= lorem.paragraph %></p>
-    </div>
-</div>
-<div class="section two">
-    <div class="heading">
-        <h1>We design</h1>
-        <%= image_tag 'design.png', :class => 'heading-logo' %>
-    </div>
-    <div class="content">
-        <p><%= lorem.paragraph %></p>
-        <p><%= lorem.paragraph %></p>
-        <p><%= lorem.paragraph %></p>
-        <p><%= lorem.paragraph %></p>
-        <p><%= lorem.paragraph %></p>
+    <section class="heading">
+        <div class="heading-content">
+            <h1>We ideate</h1>
+            <%= image_tag 'idea2.png', :class => 'heading-logo' %>
+        </div>
+    </section>
+
+    <section class="slide-content">
+        <div class="slide">
+            <h2><%= lorem.words 3 %></h2>
+            <p><%= lorem.sentences 1 %></p><br />
+
+            <h2><%= lorem.words 5 %></h2>
+            <p><%= lorem.sentences 3 %></p><br />
+
+            <h2><%= lorem.words 2 %></h2>
+            <p><%= lorem.sentences 2 %></p><br />
+
+            <h2><%= lorem.words 4 %></h2>
+            <p><%= lorem.paragraph %></p><br />
+
+            <h2><%= lorem.words 5 %></h2>
+            <p><%= lorem.sentences 1 %></p><br />
+            <div class="summary">
+              <span class="big">“</span><span>getting the requirements right, take you half way to the solution</span><span class="big" style="position:absolute; margin-top: 26px;">”</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-logo">
+        <%= image_tag 'logo.png', :class => 'logo' %>
+        <div class="links">
+          <span class="link link-current">About</span>
+          <span class="link">Blog</span>
+          <span class="link">Contact</span>
+        </div>
     </div>
 </div>

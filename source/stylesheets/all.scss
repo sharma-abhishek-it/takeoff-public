@@ -3,8 +3,6 @@
 @import "compass/css3/box-sizing";
 
 $base-font-size: 16px;
-//$red-color: #F22613;
-//$red-color: #EF4836;
 $red-color: #D91E18;
 $green-color: #16A085;
 
@@ -30,60 +28,96 @@ body {
   overflow-x: hidden;
 }
 
-.logo {
-  width: 70%;
-  position: absolute;
-  top: 0;left: 0; bottom: 0; right: 0;
-  margin: auto auto;
-  z-index: 2;
+// .logo {
+//   width: 70%;
+//   position: absolute;
+//   top: 0;left: 0; bottom: 0; right: 0;
+//   margin: auto auto;
+//   z-index: 2;
+// }
+//
+// .footer-logo{
+//   width: 100%;
+//   padding: 20px;
+//   background-color: lighten(#000, 22%);
+//   .logo {
+//     width: 40%;
+//   }
+// }
+
+.next-color-line {
+  display: none;
 }
 
-.section {
-  position: absolute;
-  width: 97%;
-  top: 0px;
-  height: 100%;
-  .char2 {
-    margin-left: -2px;
-  }
-  &.one {
-    color: lighten($red-color, 45%);
-    .heading {
-      background-color: $red-color;
-    }
-    .content {
-      background-color: darken($red-color, 4%);
-    }
-  }
-  &.two {
-    color: lighten($green-color, 45%);
-    .heading {
-      background-color: $green-color;
-    }
-    .content {
-      background-color: darken($green-color, 4%);
-    }
-  }
-}
-.heading, .content {
+.slide-container {
+  position: relative;
   width: 100%;
-  top:0;
-  padding-left: 10px;
-  padding-right: 20px;
+  height: 100%;
+  top: 0;left: 0;
+  color: lighten($red-color, 45%);
+}
+.heading,.slide-content{
+  position: relative;
+}
+.heading,.slide-content {
+  width: 50%;
+  height: 100%;
+  float: left;
 }
 .heading {
-  position: absolute;
-  height: 70px;
+  background-color: $red-color;
+  @include box-shadow(2px 0px 9px rgb(20,20,20));
   z-index: 2;
-  @include box-shadow(0px 1px 9px rgb(20,20,20));
+  h1 {
+    margin: 16px;
+    font-size: 42px;
+  }
 }
-.heading-logo {
-  position: absolute;
-  top:0;bottom:0;margin-top:auto;margin-bottom:auto;
-  right:20px;
-  width: 48px;
+.slide-content {
+  background-color: darken($red-color, 4%);
+  overflow-y: scroll;
+  padding-left: 30px;padding-right: 20%;
 }
-.content {
+.summary {
+  position: fixed;
+  font-family: $serif;
+  right: 20px; top: 12%;
+  width: 17%;
+  text-align: right;
+  line-height: 20px;
+  opacity: 0.8;
+  padding-top: 30px;padding-bottom: 30px;padding-right: 20px;
+  border: solid 1px;
+  border-radius: 3px;
+  .big {
+    font-size: 42px;
+  }
+}
+.heading-content {
   position: absolute;
-  padding-top: 80px;
+  margin-left: auto; margin-right: auto;left:0;right:0;
+  text-align: center;
+  margin-top: 16%;
+}
+.footer-logo {
+  position: relative;
+  //margin-left: auto; margin-right: auto;left:0;right:0;
+  width: 50%;float: left;
+  margin-top: -150px;
+  text-align: center;
+  z-index: 3;
+  .logo {
+    height: 50px;
+  }
+  .links {
+    font-size: 22px;
+    margin-top: 10px;
+  }
+  .link:nth-child(2) {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .link-current {
+    border-bottom: solid 1px;
+  }
 }
