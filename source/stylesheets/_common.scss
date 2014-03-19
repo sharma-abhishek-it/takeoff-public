@@ -1,0 +1,41 @@
+@import "variables";
+
+%abs-vertical-center {
+  top: 0; bottom: 0;
+  margin-bottom: auto; margin-top: auto;
+}
+%abs-horizontal-center {
+  left: 0; right: 0;
+  margin-left: auto; margin-right: auto; 
+}
+%display-toggle {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.heading {
+  font-family: $serif;
+}
+.logo {
+  max-width: 350px;
+}
+
+.red-style {
+  background-color: $red-color;
+  color: lighten($red-color, 45%);
+}
+.green-style {
+  background-color: $green-color;
+  color: lighten($green-color, 45%);
+}
+
+#front-logo {
+  .logo {
+    @extend %abs-vertical-center;
+    @extend %abs-horizontal-center;
+    width: 70%;
+    position: absolute;
+  }
+}

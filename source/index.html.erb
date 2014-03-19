@@ -1,70 +1,40 @@
-<%# <%= image_tag 'logo-dark.png', :class => 'logo' %>
-<!-- <div class="static-container">
-    <div class="section one">
-        <div class="heading">
-            <h1>We ideate</h1>
-            <%= image_tag 'idea2.png', :class => 'heading-logo' %>
-        </div>
-        <div class="content">
-            <p><%= lorem.paragraph %></p>
-            <p><%= lorem.paragraph %></p>
-            <p><%= lorem.paragraph %></p>
-            <p><%= lorem.paragraph %></p>
-            <p><%= lorem.paragraph %></p>
-        </div>
+<div id="sliding-layout">
+    <div id="front-logo" class="slide slide-1">
+        <%= image_tag 'logo.png', :class => 'logo' %>
     </div>
-    <div class="section two">
-        <div class="heading">
-            <h1>We design</h1>
-            <%= image_tag 'design.png', :class => 'heading-logo' %>
-        </div>
-        <div class="content">
-            <p><%= lorem.paragraph %></p>
-            <p><%= lorem.paragraph %></p>
-            <p><%= lorem.paragraph %></p>
-            <p><%= lorem.paragraph %></p>
-            <p><%= lorem.paragraph %></p>
-        </div>
-    </div>
-</div> -->
-<div class="slide-container">
-    <div class="next-color-line"></div>
-
-    <section class="heading">
-        <div class="heading-content">
-            <h1>We ideate</h1>
-            <%= image_tag 'idea2.png', :class => 'heading-logo' %>
-        </div>
-    </section>
-
-    <section class="slide-content">
-        <div class="slide">
+    <% counter = 2 %>
+    <% data.slides.each do |slide| %>
+        <div class="slide <%= slide.css_class %> slide-<%= counter %>">
+            <% counter = counter + 1 %>
+            <div class="inline-heading">
+                <h1><%= slide.heading %></h1>
+                <%= image_tag slide.image, :class => 'heading-logo' %>
+            </div>
             <h2><%= lorem.words 3 %></h2>
-            <p><%= lorem.sentences 1 %></p><br />
+            <p><%= lorem.sentences 1 %></p>
 
             <h2><%= lorem.words 5 %></h2>
-            <p><%= lorem.sentences 3 %></p><br />
+            <p><%= lorem.sentences 3 %></p>
 
             <h2><%= lorem.words 2 %></h2>
-            <p><%= lorem.sentences 2 %></p><br />
+            <p><%= lorem.sentences 2 %></p>
 
             <h2><%= lorem.words 4 %></h2>
-            <p><%= lorem.paragraph %></p><br />
+            <p><%= lorem.paragraph %></p>
 
             <h2><%= lorem.words 5 %></h2>
-            <p><%= lorem.sentences 1 %></p><br />
+            <p><%= lorem.sentences 1 %></p>
             <div class="summary">
-              <span class="big">“</span><span>getting the requirements right, take you half way to the solution</span><span class="big" style="position:absolute; margin-top: 26px;">”</span>
+              <span class="big">“</span><span><%= slide.tagline %></span><span class="big" style="position:absolute; margin-top: 26px;">”</span>
             </div>
         </div>
-    </section>
-
-    <div class="footer-logo">
-        <%= image_tag 'logo.png', :class => 'logo' %>
-        <div class="links">
-          <span class="link link-current">About</span>
-          <span class="link">Blog</span>
-          <span class="link">Contact</span>
-        </div>
+    <% end %>
+</div>
+<div id="footer-logo">
+    <%= image_tag 'logo.png', :class => 'logo' %>
+    <div class="links">
+      <span class="link link-current">About</span>
+      <span class="link">Blog</span>
+      <span class="link">Contact</span>
     </div>
 </div>
