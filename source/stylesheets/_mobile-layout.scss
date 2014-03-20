@@ -2,8 +2,8 @@
 @import "compass/css3/opacity";
 
 @media only screen and (max-width: 600px) {
-  .mobile-layout {
-    display: inline;
+  .desktop-layout {
+    display: none;
   }
   $left-baseline: 10px;
   .inline-heading {

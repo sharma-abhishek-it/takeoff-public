@@ -14,7 +14,7 @@
             <div class="swiper-slide <%= slide.css_class %> slide-<%= counter %>">
                 <% counter = counter + 1 %>
                 <div class="inline-heading">
-                    <h1><%= slide.heading %></h1>
+                    <h1 class="heading"><%= slide.heading %></h1>
                     <%= image_tag slide.image, :class => 'heading-logo' %>
                 </div>
                 <h2><%= lorem.words 3 %></h2>
@@ -39,11 +39,47 @@
         </div>
     </div>
 </span>
+<div class="desktop-layout">
+    <div id="front-logo">
+        <%= image_tag 'logo.png', :class => 'logo' %>
+    </div>
+    <div id="slides-container" class="red-style">
+        <div id="headings">
+            <div class="heading-content">
+                <h1 class="heading"><%= data.slides[0].heading %></h1>
+                <%= image_tag data.slides[0].image, :class => 'heading-logo' %>
+            </div>
+        </div>
+        <div id="slides">
+            <div class="slide" data-style-class="<%= data.slides[0].css_class %>">
+                <h2><%= lorem.words 3 %></h2>
+                <p><%= lorem.sentences 1 %></p>
+
+                <h2><%= lorem.words 5 %></h2>
+                <p><%= lorem.sentences 3 %></p>
+
+                <h2><%= lorem.words 2 %></h2>
+                <p><%= lorem.sentences 2 %></p>
+
+                <h2><%= lorem.words 4 %></h2>
+                <p><%= lorem.paragraph %></p>
+
+                <h2><%= lorem.words 5 %></h2>
+                <p><%= lorem.sentences 1 %></p>
+                <div class="summary">
+                  <span class="big">“</span><span><%= data.slides[0].tagline %></span><span class="big" style="position:absolute; margin-top: 26px;">”</span>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+</div>
 <div id="footer-logo">
     <%= image_tag 'logo.png', :class => 'logo' %>
     <div class="links">
       <span class="link link-current">About</span>
       <span class="link">Blog</span>
+      <span class="link">Portfolio</span>
       <span class="link">Contact</span>
     </div>
 </div>
