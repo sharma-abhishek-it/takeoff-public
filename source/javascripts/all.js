@@ -78,7 +78,7 @@ $(document).ready(function() {
         $('#front-logo img').click(function(){
             console.log("lallu");
             $('#slides-container').fadeIn();
-            $('#footer-logo').fadeIn();
+            $('#footer-logo').fadeIn().addClass('red-style');
         })
     }
     /*for(var i=1; i<totalCirclesOnScreenAtAnyMoment; i++) {

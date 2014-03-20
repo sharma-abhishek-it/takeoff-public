@@ -16,7 +16,6 @@
     height: 100%;
     top: 0;left: 0;
     z-index: 2;display: none;
-    color: lighten($red-color, 45%);
   }
   #headings, #slides {
     position: relative;
@@ -25,12 +24,16 @@
     float: left;
   }
   #slides-container.red-style {
+    color: lighten($red-color, 45%);
     #headings {
       background-color: $red-color;
     }
     #slides {
       background-color: darken($red-color, 4%);
     }
+  }
+  #footer-logo.red-style {
+    color: lighten($red-color, 45%);
   }
  
   #headings {
@@ -71,7 +74,6 @@
   }
   #footer-logo {
     display: none;
-    color: White;
     position: relative;
     width: 50%;float: left;
     margin-top: -150px;
