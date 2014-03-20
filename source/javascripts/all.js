@@ -65,7 +65,10 @@ $(document).ready(function() {
     var cssRule = "width:" + $(window).width() + 'px' + ";height:" + $(window).height() + 'px;';
     addCSSRule(document.styleSheets[0], ".swiper-container", cssRule);
 
-    $('.swiper-container').swiper({mode: 'horizontal'});      
+    $('.swiper-container').swiper(
+        {
+            mode: 'horizontal'    
+        });      
     /*for(var i=1; i<totalCirclesOnScreenAtAnyMoment; i++) {
         var circle = document.createElement('div');
         circle.id = "circle-" + i;
