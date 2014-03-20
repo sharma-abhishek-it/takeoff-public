@@ -52,6 +52,7 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
 activate :livereload
+activate :directory_indexes
 
 # Build-specific configuration
 configure :build do

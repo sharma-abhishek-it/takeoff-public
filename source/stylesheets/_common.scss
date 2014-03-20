@@ -22,15 +22,6 @@
   max-width: 350px;
 }
 
-.red-style {
-  background-color: $red-color;
-  color: lighten($red-color, 45%);
-}
-.green-style {
-  background-color: $green-color;
-  color: lighten($green-color, 45%);
-}
-
 #front-logo {
   .logo {
     @extend %abs-vertical-center;
