@@ -3,6 +3,11 @@
       <div class="swiper-wrapper">
         <div id="front-logo" class="swiper-slide slide-1">
             <%= image_tag 'logo.png', :class => 'logo' %>
+            <div id="arrows">
+                <%= image_tag 'arrow.png'%>
+                <%= image_tag 'arrow.png'%>
+                <%= image_tag 'arrow.png'%>
+            </div>
         </div>
         <% counter = 2 %>
         <% data.slides.each do |slide| %>

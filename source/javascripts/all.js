@@ -69,6 +69,11 @@ $(document).ready(function() {
         {
             mode: 'horizontal'    
         });      
+
+    if ($('.mobile-layout').css('display') == 'inline') {
+        var arrows = $('#arrows img');
+        TweenMax.staggerFrom([arrows[2], arrows[1], arrows[0]], 0.6, {opacity: 0, repeat: -1, yoyo: true, delay: 1, repeatDelay: 0.4}, 0.20); 
+    }
     /*for(var i=1; i<totalCirclesOnScreenAtAnyMoment; i++) {
         var circle = document.createElement('div');
         circle.id = "circle-" + i;
