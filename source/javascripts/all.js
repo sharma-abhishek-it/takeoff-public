@@ -106,12 +106,10 @@ $(document).ready(function() {
             numberOfPages: slides.length,
             onPageChanged: function(e,oldPage,newPage) {
                 showDesktopSlide(newPage);
-                console.log("Page changed is - " + newPage);
             },
             onPageClicked: function(e,originalEvent,type,page) {
                 e.stopImmediatePropagation();
                 showDesktopSlide(page);
-                console.log("Page clicked is - " + page);
             },
             shouldShowPage:function(type, page, current){
                 switch(type)

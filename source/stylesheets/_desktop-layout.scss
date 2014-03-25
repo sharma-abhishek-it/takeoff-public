@@ -61,33 +61,24 @@
     height: 100%;
     float: left;
   }
-  .slide.red-style {
-    color: lighten($red-color, 45%);
-    .heading-container {
-      background-color: $red-color;
-    }
-    .slide-content {
-      background-color: darken($red-color, 4%);
-    }
-    &.active ~ #paginator li {
-      background-color: darken($red-color, 14%);
-      &.active {
-        background-color: lighten($red-color, 45%);
+  $colorValues: $red, $orange, $blue, $green;
+  $color: red, orange, blue, green;
+  @for $i from 1 through length($color) {
+    $cName: nth($color, $i);
+    $cVal: nth($colorValues, $i);
+    .slide.#{$cName}-style {
+      color: lighten($cVal, 45%);
+      .heading-container {
+        background-color: $cVal;
       }
-    }
-  }
-  .slide.green-style {
-    color: lighten($green-color, 45%);
-    .heading-container {
-      background-color: $green-color;
-    }
-    .slide-content {
-      background-color: darken($green-color, 4%);
-    }
-    &.active ~ #paginator li {
-      background-color: darken($green-color, 14%);
-      &.active {
-        background-color: lighten($green-color, 45%);
+      .slide-content {
+        background-color: darken($cVal, 4%);
+      }
+      &.active ~ #paginator li {
+        background-color: darken($cVal, 14%);
+        &.active {
+          background-color: lighten($cVal, 45%);
+        }
       }
     }
   }
@@ -117,6 +108,7 @@
     text-align: right;
     line-height: 20px;
     opacity: 0.8;
+    padding: 30px 20px 30px 10px;
     padding-top: 30px;padding-bottom: 30px;padding-right: 20px;
     border: solid 1px;
     border-radius: 3px;

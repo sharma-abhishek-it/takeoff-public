@@ -1,6 +1,12 @@
 [{"css_class":"red-style","heading": "We ideate", 
 "image": "idea2.png", 
-"tagline": "getting the requirements right, takes you half way to the solution", "next_color": "green-background"},
-{"css_class":"green-style","heading": "We design", 
+"tagline": "getting the requirements right, takes you half way to the solution"},
+{"css_class":"orange-style","heading": "We design", 
 "image": "design.png", 
-"tagline": "good designs speaks, bad design shouts", "next_color": "blue-background"}]
+"tagline": "bad design shouts and users leave, good design speaks and users listen, great design just sits there and user does the rest"},
+{"css_class":"blue-style","heading": "We build", 
+"image": "tech.png", 
+"tagline": "testing is the key to all software, it helps make unbreakable software"},
+{"css_class":"green-style","heading": "We grow", 
+"image": "tech.png", 
+"tagline": "it is never the channel, but the strategy which gets you more and more customers"}]
