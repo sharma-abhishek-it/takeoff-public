@@ -96,7 +96,7 @@ $(document).ready(function() {
                 $('#footer-logo').fadeIn();
             }
         }
-        TweenMax.fromTo(slides[page-1], 0.6, {scale: 0.6, opacity: 0.3}, animationProp);
+        TweenMax.fromTo(slides[page-1], 0.6, {scale: 0.9, opacity: 0.3}, animationProp);
     }
     
     paginator.bootstrapPaginator(

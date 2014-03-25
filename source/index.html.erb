@@ -17,20 +17,10 @@
                     <h1 class="heading"><%= slide.heading %></h1>
                     <%= image_tag slide.image, :class => 'heading-logo' %>
                 </div>
-                <h2><%= lorem.words 3 %></h2>
-                <p><%= lorem.sentences 1 %></p>
-
-                <h2><%= lorem.words 5 %></h2>
-                <p><%= lorem.sentences 3 %></p>
-
-                <h2><%= lorem.words 2 %></h2>
-                <p><%= lorem.sentences 2 %></p>
-
-                <h2><%= lorem.words 4 %></h2>
-                <p><%= lorem.paragraph %></p>
-
-                <h2><%= lorem.words 5 %></h2>
-                <p><%= lorem.sentences 1 %></p>
+                <% slide.content.each do |content| %>
+                    <h2><%= content.title %></h2>
+                    <p><%= content.body %></p>
+                <% end %>
                 <div class="summary">
                   <span class="big">“</span><span><%= slide.tagline %></span><span class="big" style="position:absolute; margin-top: 26px;">”</span>
                 </div>
@@ -58,20 +48,10 @@
                     </div>
                 </div>
                 <div class="slide-content">
-                    <h2><%= lorem.words 3 %></h2>
-                    <p><%= lorem.sentences 1 %></p>
-
-                    <h2><%= lorem.words 5 %></h2>
-                    <p><%= lorem.sentences 3 %></p>
-
-                    <h2><%= lorem.words 2 %></h2>
-                    <p><%= lorem.sentences 2 %></p>
-
-                    <h2><%= lorem.words 4 %></h2>
-                    <p><%= lorem.paragraph %></p>
-
-                    <h2><%= lorem.words 5 %></h2>
-                    <p><%= lorem.sentences 1 %></p>
+                    <% slide.content.each do |content| %>
+                        <h2><%= content.title %></h2>
+                        <p><%= content.body %></p>
+                    <% end %>
                     <div class="summary">
                       <span class="big">“</span><span><%= slide.tagline %></span><span class="big" style="position:absolute; margin-top: 26px;">”</span>
                     </div>
