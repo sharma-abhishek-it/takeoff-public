@@ -18,7 +18,7 @@ html,body {
 }
 
 body {
-  background-color: lighten(#000, 22%);
+  background-color: $grey-color;
   font-family: $sans;
   font-size: $base-font-size;
 }

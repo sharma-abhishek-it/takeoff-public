@@ -41,36 +41,44 @@
 </span>
 <div class="desktop-layout">
     <div id="front-logo">
-        <%= image_tag 'logo.png', :class => 'logo' %>
-    </div>
-    <div id="slides-container" class="red-style">
-        <div id="headings">
-            <div class="heading-content">
-                <h1 class="heading"><%= data.slides[0].heading %></h1>
-                <%= image_tag data.slides[0].image, :class => 'heading-logo' %>
-            </div>
+        <div id="logo-content" class="abs-center"> 
+            <%= image_tag 'logo.png' %><br/>
+            <span class="heading tagline">Aim your venture to success <div id="hider"></div></span>
         </div>
-        <div id="slides">
-            <div class="slide" data-style-class="<%= data.slides[0].css_class %>">
-                <h2><%= lorem.words 3 %></h2>
-                <p><%= lorem.sentences 1 %></p>
+    </div>
+    <div id="gola-wibe">
+    </div> <div id="gola"></div>
+    <div id="slides-container">
+        <% data.slides.each do |slide| %>
+            <div class="slide <%= slide.css_class %>">
+                <div class="heading-container">
+                    <div class="heading-content">
+                        <h1 class="heading"><%= slide.heading %></h1>
+                        <%= image_tag slide.image, :class => 'heading-logo' %>
+                    </div>
+                </div>
+                <div class="slide-content">
+                    <h2><%= lorem.words 3 %></h2>
+                    <p><%= lorem.sentences 1 %></p>
 
-                <h2><%= lorem.words 5 %></h2>
-                <p><%= lorem.sentences 3 %></p>
+                    <h2><%= lorem.words 5 %></h2>
+                    <p><%= lorem.sentences 3 %></p>
 
-                <h2><%= lorem.words 2 %></h2>
-                <p><%= lorem.sentences 2 %></p>
+                    <h2><%= lorem.words 2 %></h2>
+                    <p><%= lorem.sentences 2 %></p>
 
-                <h2><%= lorem.words 4 %></h2>
-                <p><%= lorem.paragraph %></p>
+                    <h2><%= lorem.words 4 %></h2>
+                    <p><%= lorem.paragraph %></p>
 
-                <h2><%= lorem.words 5 %></h2>
-                <p><%= lorem.sentences 1 %></p>
-                <div class="summary">
-                  <span class="big">“</span><span><%= data.slides[0].tagline %></span><span class="big" style="position:absolute; margin-top: 26px;">”</span>
+                    <h2><%= lorem.words 5 %></h2>
+                    <p><%= lorem.sentences 1 %></p>
+                    <div class="summary">
+                      <span class="big">“</span><span><%= slide.tagline %></span><span class="big" style="position:absolute; margin-top: 26px;">”</span>
+                    </div>
                 </div>
             </div>
-        </div>
+        <% end %>
+        <div id="paginator"></div>
     </div>
             
 </div>
