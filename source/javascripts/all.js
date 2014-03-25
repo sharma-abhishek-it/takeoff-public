@@ -81,6 +81,7 @@ $(document).ready(function() {
     var onHomePage = true;
     var paginator = $('#paginator');
     var slides = $('.desktop-layout .slide');
+
     $('#logo-content').show();
 
     function showDesktopSlide(page, fromHomePage) {
@@ -95,13 +96,14 @@ $(document).ready(function() {
                 $('#footer-logo').fadeIn();
             }
         }
-        TweenMax.fromTo(slides[page-1], 0.6, {scale: 0, opacity: 0}, animationProp);
+        TweenMax.fromTo(slides[page-1], 0.6, {scale: 0.6, opacity: 0.3}, animationProp);
     }
     
     paginator.bootstrapPaginator(
         {
             currentPage: 1, 
             totalPages: slides.length,
+            numberOfPages: slides.length,
             onPageChanged: function(e,oldPage,newPage) {
                 showDesktopSlide(newPage);
                 console.log("Page changed is - " + newPage);
@@ -110,6 +112,16 @@ $(document).ready(function() {
                 e.stopImmediatePropagation();
                 showDesktopSlide(page);
                 console.log("Page clicked is - " + page);
+            },
+            shouldShowPage:function(type, page, current){
+                switch(type)
+                {
+                    case "first":
+                    case "last":
+                        return false;
+                    default:
+                        return true;
+                }
             }
         });
 
@@ -131,7 +143,9 @@ $(document).ready(function() {
             
             $('#slides-container').show();
             $('#footer-logo').fadeIn();
-            
+            //$('#paginator li:eq(' + slides.length + ')').hide();
+            //$('#paginator li:eq(' + (slides.length + 1) + ')').hide();
+    
             showDesktopSlide(1);
             onHomePage = false;
         } else {

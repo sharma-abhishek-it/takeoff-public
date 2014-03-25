@@ -69,6 +69,12 @@
     .slide-content {
       background-color: darken($red-color, 4%);
     }
+    &.active ~ #paginator li {
+      background-color: darken($red-color, 14%);
+      &.active {
+        background-color: lighten($red-color, 45%);
+      }
+    }
   }
   .slide.green-style {
     color: lighten($green-color, 45%);
@@ -78,12 +84,16 @@
     .slide-content {
       background-color: darken($green-color, 4%);
     }
+    &.active ~ #paginator li {
+      background-color: darken($green-color, 14%);
+      &.active {
+        background-color: lighten($green-color, 45%);
+      }
+    }
   }
   .slide.active {
-    z-index: 99;
     display: block;
   }
- 
   .heading-container {
     @include box-shadow(2px 0px 9px rgb(20,20,20));
     z-index: 3;
@@ -120,6 +130,30 @@
     text-align: center;
     margin-top: 16%;
   }
+  
+  #paginator {
+    position: absolute;
+    width: 50%;
+    left: 0; bottom: 40%;
+    z-index: 3;
+    text-align: center;
+    ul {
+      margin:0;padding:0;
+      li {
+        display: inline-block;
+        a {
+          visibility: hidden;
+        }
+        margin-right: 10px;
+        height: 10px;width: 10px;border-radius: 10px;
+        background-color: White;
+      }
+      li:nth-child(1), li:nth-last-child(1) {
+        display: none;
+      }
+    }
+  }
+
   #footer-logo {
     display: none;
     position: relative;
