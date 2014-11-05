@@ -19,7 +19,7 @@
       }
     }
   }
-  .is-home { 
+  .is-home {
     #slides-container {
       display: none;
     }
@@ -30,7 +30,7 @@
       display: none;
     }
   }
-  
+
   #gola-wibe, #gola {
     position: absolute;
     width: 30px;height:30px;
@@ -125,7 +125,7 @@
     text-align: center;
     margin-top: 16%;
   }
-  
+
   #paginator {
     position: absolute;
     width: 50%;
@@ -165,24 +165,22 @@
       font-size: 22px;
       margin-top: 10px;
     }
-    .link a {
-      text-decoration: none;
-      color: inherit;
-      &:visited {
+    .link{
+      margin-right: 30px;
+      a {
         text-decoration: none;
         color: inherit;
+        &:visited {
+          text-decoration: none;
+          color: inherit;
+        }
       }
     }
-    .link:nth-child(2) {
-      margin-left: 30px;
-      margin-right: 10px;
-    }
-    .link:nth-child(3) {
-      margin-left: 30px;
-      margin-right: 30px;
+    .link.contact-link {
+      margin-right: 0px;
     }
   }
-  .contact .contact-link, .index .index-link, .link:hover {
+  .contact .contact-link, .index .index-link, .portfolio .portfolio-link, .link:hover {
     border-bottom: solid 1px;
   }
 
@@ -193,7 +191,7 @@
     margin-left: 30px;
     float: left;
   }
-  
+
   #contact-form {
     width: 380px;
     position: relative;
@@ -242,7 +240,7 @@
         cursor: pointer;
       }
       &.loading .icon-spin5{display:block;}
-      
+
     }
     .icon-mobile-alt {
       font-size: 20px;
@@ -271,6 +269,47 @@
     textarea {
       resize: none;
       padding-top: 10px;
+    }
+  }
+
+  .portfolio {
+    color: darken(White, 10%);
+    .section {
+      float: left;
+      padding: 50px;
+      &.left {
+        width: 40%;
+      }
+      &.right {
+        width: 60%;
+        padding-top: 0px;
+      }
+    }
+    .logo-cont {
+      width: 145px;
+      height: 60px;
+      background-color: White;
+      position: relative;
+      margin-right: 50px;
+      margin-bottom: 50px;
+      float: left;
+      @include border-radius(5px);
+      &.active {
+        @include box-shadow(0px 0px 5px 8px #C25151);
+      }
+      img {
+        position: absolute;
+        width: 90%;
+        height: auto;
+        right:0;left:0; margin: auto auto;
+        bottom: 10px;
+      }
+    }
+    .website {
+      display: none;
+      h1 {
+        margin-top: 0px;
+      }
     }
   }
 }

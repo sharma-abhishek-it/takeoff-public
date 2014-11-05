@@ -55,6 +55,7 @@ set :fonts_dir, 'font'
 
 activate :livereload
 activate :directory_indexes
+activate :relative_assets
 
 # Build-specific configuration
 configure :build do

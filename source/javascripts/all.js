@@ -1,4 +1,5 @@
 //= require jquery.lettering
+//= require jquery.bxslider.min
 //= require swiper.min
 //= require bootstrap-paginator.min
 
@@ -12,10 +13,10 @@ var totalCirclesOnScreenAtAnyMoment = 5;
 function animateRandomCircle(circle) {
     circle.style.position = 'absolute';
     circle.style.zIndex = '1';
-    
+
     var randomScale = scales[Math.floor(Math.random()*5)];
     var randomRadius = radius / randomScale;
-    
+
     circle.style.width = randomRadius + "px";
     circle.style.height = randomRadius + "px";
     circle.style.borderRadius = randomRadius + "px";
@@ -26,7 +27,7 @@ function animateRandomCircle(circle) {
     circle.style.bottom = (0) + "px";
     circle.style.left = Math.floor(document.body.clientWidth * Math.random()) + "px";
 
-    TweenMax.to(circle, minTimeForTween * randomScale, 
+    TweenMax.to(circle, minTimeForTween * randomScale,
         {
             top: (0) + "px", opacity: 0.15,
             ease: Linear.easeNone,
@@ -69,19 +70,19 @@ $(document).ready(function() {
         addCSSRule(document.styleSheets[0], ".swiper-container", cssRule);
         $('.swiper-container').swiper(
             {
-                mode: 'horizontal'    
-            });      
-        
+                mode: 'horizontal'
+            });
+
         var arrows = $('#arrows img');
-         TweenMax.fromTo($('#hider')[0], 1, {left: 0}, {left: '100%', delay: 0.6, ease: Linear.easeNone, 
+         TweenMax.fromTo($('#hider')[0], 1, {left: 0}, {left: '100%', delay: 0.6, ease: Linear.easeNone,
             onComplete: function(){
                 $('#arrows').show();
-                TweenMax.staggerFrom([arrows[2], arrows[1], arrows[0]], 0.6, {opacity: 0, repeat: -1, yoyo: true, delay: 1, repeatDelay: 0.4}, 0.20);     
+                TweenMax.staggerFrom([arrows[2], arrows[1], arrows[0]], 0.6, {opacity: 0, repeat: -1, yoyo: true, delay: 1, repeatDelay: 0.4}, 0.20);
             }});
-        
+
     }
 
-    
+
     // ******************** Desktop code
     if ($('.desktop-layout').css('display') == 'block') {
         var wibesInterval = null;
@@ -106,10 +107,10 @@ $(document).ready(function() {
             }
             TweenMax.fromTo(slides[page-1], 0.6, {scale: 0.9, opacity: 0.3}, animationProp);
         }
-        
+
         paginator.bootstrapPaginator(
             {
-                currentPage: 1, 
+                currentPage: 1,
                 totalPages: slides.length,
                 numberOfPages: slides.length,
                 onPageChanged: function(e,oldPage,newPage) {
@@ -131,23 +132,23 @@ $(document).ready(function() {
                 }
             });
 
-        TweenMax.fromTo($('.desktop-layout #hider')[0], 1, {left: 0}, {left: '100%', delay: 0.6, ease: Linear.easeNone, 
+        TweenMax.fromTo($('.desktop-layout #hider')[0], 1, {left: 0}, {left: '100%', delay: 0.6, ease: Linear.easeNone,
             onComplete: function(){
                 wibeTween = TweenMax.fromTo($('#gola-wibe')[0], 1, {scale: 1, opacity: 1}, {scale: 6, opacity: 0, delay: 0.5});
                 wibesInterval = setInterval(function(){
                     wibeTween = TweenMax.fromTo($('#gola-wibe')[0], 1, {scale: 1, opacity: 1}, {scale: 6, opacity: 0});
                 }, 2300);
             }});
-        
+
         $('#gola').click(function(){
             if (onHomePage) {
                 $('.desktop-layout').removeClass('is-home');
-                
+
                 clearInterval(wibesInterval);
                 if (wibeTween != null) {
                     wibeTween.seek(10);
                 }
-                
+
                 showDesktopSlide(1);
                 onHomePage = false;
             } else {

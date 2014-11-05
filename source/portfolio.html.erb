@@ -1,0 +1,73 @@
+<div class="section left">
+  <a class="logo-cont" href="#ish">
+    <%= image_tag 'ish.png' %>
+  </a>
+  <a class="logo-cont" href="#">
+    <%= image_tag 'ragahtsa.png' %>
+  </a>
+  <a class="logo-cont" href="#">
+    <%= image_tag 'yogi.png' %>
+  </a>
+  <a class="logo-cont" href="#">
+    <%= image_tag 'in-focus.png' %>
+  </a>
+  <a class="logo-cont" href="#">
+    <%= image_tag 'mercado.png' %>
+  </a>
+  <a class="logo-cont" href="#">
+    <%= image_tag 'expboxes.png' %>
+  </a>
+</div>
+<div class="section right">
+  <div class="website" id="ish">
+    <h1>India Sari House</h1>
+    <ul class="bxslider">
+      <li>
+        <img data-src="<%= asset_path :images, 'ish1.jpg' %>" class="lazy" />
+      </li>
+      <li>
+        <img data-src="<%= asset_path :images, 'ish2.jpg' %>" class="lazy" />
+      </li>
+      <li>
+        <img data-src="<%= asset_path :images, 'ish3.jpg' %>" class="lazy" />
+      </li>
+      <li>
+        <img data-src="<%= asset_path :images, 'ish4.jpg' %>" class="lazy" />
+      </li>
+      <li>
+        <img data-src="<%= asset_path :images, 'ish5.jpg' %>" class="lazy" />
+      </li>
+    </ul>
+    <p>
+      India Sari House contains a whole lot of features. 
+    </p>
+  </div>
+</div>
+<%= partial "footer-logo" %>
+
+<script>
+var sliders = [];
+$('.logo-cont').click(function(e){
+  e.preventDefault();
+  e.stopPropagation();
+  if($(this).hasClass('active')) return;
+
+  $('.logo-cont').removeClass('active');
+  $('.website').attr("class", "website");
+  $(this).addClass('active');
+  var id = $(this).attr('href');
+  $(id).show();
+  sliders[id].reloadSlider();
+  $(id).addClass('animated fadeInRight');
+})
+$(window).load(function(){
+  $('img.lazy').each(function(){
+    $(this).attr('src', $(this).data('src'));
+  })
+  $('.website').each(function(){
+    var id = $(this).attr('id');
+    sliders['#'+id] = $(this).find('.bxslider').bxSlider();
+  })
+
+})
+</script>
