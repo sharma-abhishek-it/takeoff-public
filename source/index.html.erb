@@ -1,8 +1,19 @@
 <span class="mobile-layout">
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div id="front-logo" class="swiper-slide slide-1">
+        <!-- <div id="front-logo" class="swiper-slide slide-1">
             <%= image_tag 'logo.png', :class => 'logo' %>
+            <div id="arrows">
+                <%= image_tag 'arrow.png'%>
+                <%= image_tag 'arrow.png'%>
+                <%= image_tag 'arrow.png'%>
+            </div>
+        </div> -->
+        <div id="front-logo" class="swiper-slide slide-1">
+            <div id="logo-content" class="abs-center"> 
+                <%= image_tag 'logo.png' , :class => 'logo' %><br/>
+                <span class="heading tagline">Aim your venture to success <div id="hider"></div></span>
+            </div>
             <div id="arrows">
                 <%= image_tag 'arrow.png'%>
                 <%= image_tag 'arrow.png'%>
@@ -29,7 +40,7 @@
         </div>
     </div>
 </span>
-<div class="desktop-layout">
+<div class="desktop-layout is-home">
     <div id="front-logo">
         <div id="logo-content" class="abs-center"> 
             <%= image_tag 'logo.png' %><br/>
@@ -59,15 +70,9 @@
             </div>
         <% end %>
         <div id="paginator"></div>
-    </div>
-            
+    </div>      
 </div>
-<div id="footer-logo">
-    <%= image_tag 'logo.png', :class => 'logo' %>
-    <div class="links">
-      <span class="link link-current">About</span>
-      <span class="link">Blog</span>
-      <span class="link">Portfolio</span>
-      <span class="link">Contact</span>
-    </div>
-</div>
+
+<%= partial "footer-logo" %>
+
+<%= javascript_include_tag  "all" %>

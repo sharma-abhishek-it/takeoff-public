@@ -29,9 +29,32 @@
 
 #front-logo {
   .logo {
-    @extend %abs-vertical-center;
-    @extend %abs-horizontal-center;
+    //@extend %abs-vertical-center;
+    //@extend %abs-horizontal-center;
     width: 70%;
-    position: absolute;
+    //position: absolute;
   }
+}
+#front-logo {
+  text-align:center;
+  img {
+    max-width: 350px;
+  }
+}
+#logo-content {
+  height: 160px;position:absolute;
+  
+  .tagline {
+    position: relative;
+    #hider {
+      position: absolute;
+      top:0; left:0;
+      width: 100%;
+      height: 100%;
+      background-color: $grey-color;
+    }
+  }
+}
+.tagline {
+  color: White;
 }
