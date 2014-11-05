@@ -1,7 +1,6 @@
 //= require jquery.lettering
 //= require jquery.bxslider.min
 //= require swiper.min
-//= require bootstrap-paginator.min
 
 var colors = ['#E74C3C', '#22A7F0', '#03A678', '#EB974E'];
 var radius = 120; // in px
@@ -94,10 +93,18 @@ $(document).ready(function() {
         //$('#logo-content').show();
 
         function showDesktopSlide(page, fromHomePage) {
+            if (wibeTween != null) {
+                wibeTween.seek(10);
+            }
             TweenMax.killAll();
+            if(page == 1 || page == 2 || page == 3 && wibesInterval) {
+              clearInterval(wibesInterval);
+            }
 
             slides.removeClass('active');
-            $(slides[page-1]).addClass('active');
+            $(slides[page]).addClass('active');
+            $('#paginator li').removeClass('active');
+            $('#paginator li:nth('+(page)+')').addClass('active');
 
             var animationProp = {scale: 1, opacity: 1};
             if (fromHomePage) {
@@ -105,61 +112,38 @@ $(document).ready(function() {
                     $('#footer-logo').fadeIn();
                 }
             }
-            TweenMax.fromTo(slides[page-1], 0.6, {scale: 0.9, opacity: 0.3}, animationProp);
+            TweenMax.fromTo(slides[page], 0.6, {scale: 0.9, opacity: 0.3}, animationProp);
         }
-
-        paginator.bootstrapPaginator(
-            {
-                currentPage: 1,
-                totalPages: slides.length,
-                numberOfPages: slides.length,
-                onPageChanged: function(e,oldPage,newPage) {
-                    showDesktopSlide(newPage);
-                },
-                onPageClicked: function(e,originalEvent,type,page) {
-                    e.stopImmediatePropagation();
-                    showDesktopSlide(page);
-                },
-                shouldShowPage:function(type, page, current){
-                    switch(type)
-                    {
-                        case "first":
-                        case "last":
-                            return false;
-                        default:
-                            return true;
-                    }
-                }
-            });
 
         TweenMax.fromTo($('.desktop-layout #hider')[0], 1, {left: 0}, {left: '100%', delay: 0.6, ease: Linear.easeNone,
             onComplete: function(){
                 wibeTween = TweenMax.fromTo($('#gola-wibe')[0], 1, {scale: 1, opacity: 1}, {scale: 6, opacity: 0, delay: 0.5});
                 wibesInterval = setInterval(function(){
                     wibeTween = TweenMax.fromTo($('#gola-wibe')[0], 1, {scale: 1, opacity: 1}, {scale: 6, opacity: 0});
-                }, 2300);
+                }, 3000);
             }});
+        var html = "<ul>";
+        for(var i=0;i<slides.length;i++) {
+          html += "<li></li>"
+        }
+        html += "</ul>";
+        $('#paginator').append(html);
 
         $('#gola').click(function(){
             if (onHomePage) {
                 $('.desktop-layout').removeClass('is-home');
-
-                clearInterval(wibesInterval);
-                if (wibeTween != null) {
-                    wibeTween.seek(10);
-                }
-
-                showDesktopSlide(1);
+                showDesktopSlide(0);
                 onHomePage = false;
             } else {
-                pages = paginator.bootstrapPaginator("getPages");
-
-                if ( pages.current == pages.total ) {
-                    paginator.bootstrapPaginator("showFirst");
-                } else {
-                    paginator.bootstrapPaginator("showNext");
-                }
+                var curr = $('#paginator li.active').index();
+                if (curr == (slides.length - 1) ) curr = -1;
+                showDesktopSlide(curr + 1);
             }
+        })
+        $('#paginator li').each(function(index, el){
+          $(el).click(function(){
+            showDesktopSlide(index);
+          })
         })
     }
 
