@@ -1,47 +1,26 @@
 <div class="section left">
-  <a class="logo-cont" href="#ish">
-    <%= image_tag 'ish.png' %>
-  </a>
-  <a class="logo-cont" href="#">
-    <%= image_tag 'ragahtsa.png' %>
-  </a>
-  <a class="logo-cont" href="#">
-    <%= image_tag 'yogi.png' %>
-  </a>
-  <a class="logo-cont" href="#">
-    <%= image_tag 'in-focus.png' %>
-  </a>
-  <a class="logo-cont" href="#">
-    <%= image_tag 'mercado.png' %>
-  </a>
-  <a class="logo-cont" href="#">
-    <%= image_tag 'expboxes.png' %>
-  </a>
+  <% data.websites.each do |website| %>
+    <a class="logo-cont" href="#<%= website.id %>">
+      <%= image_tag website.logo %>
+    </a>
+  <% end %>
+
 </div>
 <div class="section right">
-  <div class="website" id="ish">
-    <h1>India Sari House</h1>
-    <ul class="bxslider">
-      <li>
-        <img data-src="<%= asset_path :images, 'ish1.jpg' %>" class="lazy" />
-      </li>
-      <li>
-        <img data-src="<%= asset_path :images, 'ish2.jpg' %>" class="lazy" />
-      </li>
-      <li>
-        <img data-src="<%= asset_path :images, 'ish3.jpg' %>" class="lazy" />
-      </li>
-      <li>
-        <img data-src="<%= asset_path :images, 'ish4.jpg' %>" class="lazy" />
-      </li>
-      <li>
-        <img data-src="<%= asset_path :images, 'ish5.jpg' %>" class="lazy" />
-      </li>
-    </ul>
-    <p>
-      India Sari House contains a whole lot of features. 
-    </p>
-  </div>
+  <% data.websites.each do |website| %>
+    <div class="website" id="<%= website.id %>">
+      <h1><%= website.name %></h1>
+      <ul class="bxslider">
+        <% website.snaps.each do |snap| %>
+        <li>
+          <img data-src="<%= asset_path :images, snap.image %>" class="lazy" title="<% if snap.title %><%= snap.title %><% end %>"/>
+        </li>
+        <% end %>
+      </ul>
+      <h2><a target="_blank" href="<%= website.url %>">Go to website &#35;</a></h2>
+      <p><%= website.description %></p>
+    </div>
+  <% end %>
 </div>
 <%= partial "footer-logo" %>
 
@@ -56,7 +35,7 @@ $('.logo-cont').click(function(e){
   $('.website').attr("class", "website");
   $(this).addClass('active');
   var id = $(this).attr('href');
-  $(id).show();
+  $(id).addClass('active');
   sliders[id].reloadSlider();
   $(id).addClass('animated fadeInRight');
 })
@@ -66,8 +45,9 @@ $(window).load(function(){
   })
   $('.website').each(function(){
     var id = $(this).attr('id');
-    sliders['#'+id] = $(this).find('.bxslider').bxSlider();
+    sliders['#'+id] = $(this).find('.bxslider').bxSlider({captions: true});
   })
 
+  $('.logo-cont:nth(0)').trigger('click');
 })
 </script>

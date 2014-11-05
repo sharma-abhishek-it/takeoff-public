@@ -5,6 +5,9 @@
 @import "compass/css3/images";
 
 @media only screen and (min-width: 601px) {
+  a, a:focus {
+    outline: 0 !important;
+  }
   .mobile-layout {
     display: none;
   }
@@ -279,10 +282,12 @@
       padding: 50px;
       &.left {
         width: 40%;
+        padding-top: 97px;
       }
       &.right {
         width: 60%;
-        padding-top: 0px;
+        padding-top: 30px;
+        padding-left: 10px;
       }
     }
     .logo-cont {
@@ -307,8 +312,33 @@
     }
     .website {
       display: none;
-      h1 {
-        margin-top: 0px;
+      &.active {
+        display: block;
+      }
+      h1,h3,h2 {
+        margin-top: 5px;
+        text-align: center;
+      }
+      a,a:visited,a:hover {
+        color: inherit;
+      }
+    }
+    .bx-wrapper .bx-caption {
+      bottom: 26px;
+      text-align: center;
+      background: none repeat scroll 0% 0% rgba(38, 38, 38, 0.9);
+      span {
+        font-family: $sans;
+        font-size: 20px;
+        padding-top: 4px;
+        padding-bottom: 8px;
+        font-weight: bolder;
+      }
+    }
+    .bx-wrapper .bx-pager.bx-default-pager a {
+      background-color: #fff;
+      &.active {
+        background-color: $red;
       }
     }
   }
