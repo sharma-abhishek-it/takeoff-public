@@ -48,6 +48,6 @@ $(window).load(function(){
     sliders['#'+id] = $(this).find('.bxslider').bxSlider({captions: true});
   })
 
-  $('.logo-cont:nth(0)').trigger('click');
+  setTimeout(function(){ $('.logo-cont:nth(0)').trigger('click'); }, 800);
 })
 </script>
