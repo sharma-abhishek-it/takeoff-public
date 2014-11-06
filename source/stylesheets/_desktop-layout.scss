@@ -251,7 +251,12 @@
         cursor: pointer;
       }
       &.loading .icon-spin5{display:block;}
-
+      input.submit {
+        visibility: hidden;
+        position: absolute;
+        z-index: 2;
+        top: -15px;
+      }
     }
     .icon-mobile-alt {
       font-size: 20px;
