@@ -9,19 +9,21 @@
     <h1 class="response">Thank you. We shall soon get in touch with you.</h1>
     <iframe name="iframe_adrploka" id="iframe_adrploka" style="display:none;"></iframe>
     <form action="https://docs.google.com/forms/d/1GUHMe2EAe6Se8ZlOA2_wKEcOe9meh5dKYbAd67V2pnY/formResponse" method="POST" id="inquiry" target="iframe_adrploka">
-        <div>
-            <input id="name" class="first" type="text" placeholder="Your name here" name="entry.2126790156" required>
+        <div class="form-control">
+            <input id="name" class="first" type="text" placeholder="Your name here" name="entry.2126790156" data-validate="required">
             <div class="elem"><i class="icon-user"></i></div>
         </div>
-        <div>
-            <input id="email" type="text" placeholder="Your email address" name="entry.1648979588" required>
+        <div class="form-control">
+            <input id="email" type="text" placeholder="Your email address" name="entry.1648979588" data-validate="required" data-validate-type="email">
             <div class="elem"><i class="icon-mail"></i></div>
         </div>
-        <div>
-            <input id="mobile" type="text" placeholder="Your mobile number" name="entry.1410434493" required>
+        <div class="form-control">
+            <input id="mobile" type="text" placeholder="Your mobile number" name="entry.1410434493" data-validate="required" data-validate-type="mobile">
             <div class="elem mobile"><i class="icon-mobile-alt"></i></div>
         </div>
-        <textarea id="message" placeholder="What you have to say?" rows="6" name="entry.1064901264" required></textarea>
+        <div class="form-control">
+          <textarea id="message" placeholder="What you have to say?" rows="6" name="entry.1064901264" data-validate="required"></textarea>
+        </div>
         <div id="action" class="untouched">
           <!-- <input type="submit" name="submit" value="Submit" class="submit"> -->
           <i id="send_mail" class="f-icon icon-paper-plane"></i>
@@ -32,17 +34,61 @@
 
 <%= partial "footer-logo" %>
 <script type="text/javascript">
+    function validate(form) {
+      form.find('[data-validate]').each(function(){
+        var parent = $(this).parent('.form-control');
+        parent.append("<span class='error error-required'>&starf; Please don’t leave this blank</span>");
+        switch($(this).data('validate-type')) {
+          case 'email':
+            parent.append("<span class='error error-email'>&starf; Please fill a valid email</span>");
+            break;
+          case 'mobile':
+            parent.append("<span class='error error-mobile'>&starf; Please fill a valid mobile number</span>");
+            break;
+          default:
+            break;
+        }
+        var emailREGEX = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+        var mobileREGEX = /^((\+)?(\d{2}[-]))?(\d{10}){1}?$/
+
+        $(this).change(function(){
+          var input = $(this).val();
+          var cl = "form-control ";
+          if(!input) {
+             cl += "show-required-error show-error";
+          } else if ($(this).data('validate-type') == "email" && !input.match(emailREGEX)) {
+            cl += "show-email-error show-error";
+          } else if($(this).data('validate-type') == "mobile" && !input.match(mobileREGEX)) {
+            cl += "show-mobile-error show-error";
+          }
+          parent.attr("class", cl);
+        })
+      })
+    }
+
     $('#inquiry').submit(function(){
       sent_adrploka = true;
     })
-    $('#send_mail').click(function(){
-      $('#action').removeClass('untouched');
-      $('#action').addClass('loading');
-      $('#inquiry').submit();
+    $('#send_mail').click(function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      $('#inquiry').addClass('dirty');
+      $('#inquiry [data-validate]').each(function(){
+        $(this).attr("value", $(this).val());
+        $(this).trigger('change');
+      })
+
+      if($('#inquiry').find('.show-error').length <= 0) {
+        $('#action').removeClass('untouched');
+        $('#action').addClass('loading');
+        $('#inquiry').submit();
+      }
     })
     $('#iframe_adrploka').load(function(){
       if(typeof sent_adrploka!='undefined') {
         $('#contact-form').addClass('sent-mail');
       }
     })
+
+    validate($('#inquiry'));
 </script>

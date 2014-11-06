@@ -258,6 +258,21 @@
         top: -15px;
       }
     }
+    .form-control {
+      position: relative;
+      .error {
+        position: absolute;
+        top:1px; left:10px;
+        color: rgba(47, 32, 146, 1);
+        font-size: 11px;
+        display: none;
+      }
+    }
+    form.dirty {
+      .show-required-error .error-required, .show-email-error .error-email, .show-mobile-error .error-mobile {
+        display: block;
+      }
+    }
     .icon-mobile-alt {
       font-size: 20px;
     }
